@@ -1,0 +1,115 @@
+.slick-dots {
+  bottom: 10px!important;
+}
+.social-share {
+  position: fixed;
+  z-index: 10;
+  transform: translateX(-60px);
+}
+.social-share .social-share-icon {
+  margin-top: 10px;
+  display: block;
+}
+.wechat-qrcode {
+  z-index: 1000;
+  top: -88px !important;
+  left: 40px !important;
+  width: 140px !important;
+  height: 153px !important;
+}
+.wechat-qrcode::after {
+  display: none;
+}
+.creativeIdea .ant-btn {
+  width: 100%;
+  height: 60px;
+}
+.login .ant-form-explain,
+.register .ant-form-explain {
+  text-align: left;
+}
+.login .ant-input,
+.register .ant-input {
+  height: 38px;
+}
+.login .code.ant-input,
+.register .code.ant-input {
+  padding-right: 80px;
+}
+.login .ant-btn-primary,
+.register .ant-btn-primary {
+  width: 100%;
+  background-color: #f63756;
+  border-color: #f63756;
+}
+.login .ant-btn-primary:focus,
+.register .ant-btn-primary:focus,
+.login .ant-btn-primary:hover,
+.register .ant-btn-primary:hover {
+  background-color: #f63756;
+  border-color: #f63756;
+}
+.change-user .ant-form label,
+.change-user .ant-form span,
+.change-user .ant-form input,
+.change-user .ant-form div {
+  font-size: 12px;
+}
+.change-user .ant-form label::before,
+.change-user .ant-form span::before,
+.change-user .ant-form input::before,
+.change-user .ant-form div::before {
+  font-size: 12px;
+}
+.change-user .ant-form .ant-form-item-with-help {
+  margin-bottom: 24px;
+}
+.change-user .ant-form .ant-btn-primary {
+  width: 340px;
+  background-color: #f63756;
+  border-color: #f63756;
+}
+.change-user .ant-form .ant-btn-primary:focus,
+.change-user .ant-form .ant-btn-primary:hover {
+  background-color: #f63756;
+  border-color: #f63756;
+}
+.change-user .has-error,
+.change-user .has-success {
+  position: relative;
+}
+.change-user .has-error .ant-form-explain,
+.change-user .has-success .ant-form-explain {
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+.change-user .avatar-uploader {
+  margin-bottom: 20px;
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+}
+.change-user .avatar-uploader .ant-upload-btn {
+  width: 80px;
+  height: 80px;
+  padding: 0 !important;
+}
+.change-user .avatar-uploader .ant-upload-select {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.center .ant-tabs-nav-scroll {
+  text-align: left;
+}
+.course-detail img {
+  margin-bottom: 10px;
+  max-width: 738px;
+}
+.course-detail img:first-child {
+  margin-left: -30px;
+}

@@ -1,0 +1,1 @@
+import '@/core/components-ant.ts'

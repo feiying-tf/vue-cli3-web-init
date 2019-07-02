@@ -1,0 +1,133 @@
+// 轮播图
+.slick-dots {
+  bottom: 10px!important;
+}
+// 分享的二维码
+.social-share {
+  position: fixed;
+  z-index: 10;
+  transform: translateX(-60px);
+  // background-color: red;
+  .social-share-icon {
+    margin-top: 10px;
+    display: block;
+  }
+}
+.wechat-qrcode {
+  z-index: 1000;
+  top: -88px !important;
+  left: 40px !important;
+  width: 140px !important;
+  height: 153px !important;
+  &::after {
+    display: none;
+  }
+}
+
+.creativeIdea {
+  .ant-btn {
+    width: 100%;
+    height: 60px;
+  }
+}
+// 这儿是login
+.login, .register {
+  .ant-form-explain {
+    text-align: left;
+  }
+  .ant-input {
+    height: 38px;
+  }
+  // 验证码
+  .code.ant-input {
+    padding-right: 80px;
+  }
+  .ant-btn-primary {
+    width: 100%;
+    background-color: #f63756;
+    border-color: #f63756;
+    &:focus, &:hover {
+      background-color: #f63756;
+      border-color: #f63756;
+    }
+  }
+}
+
+// 修改用户
+.change-user {
+  .ant-form {
+    label, span, input, div {
+      font-size: 12px;
+      &::before {
+        font-size: 12px;
+      }
+    }
+    .ant-form-item-with-help {
+      margin-bottom: 24px      
+    }
+    .ant-btn-primary {
+      width: 340px;
+      background-color: #f63756;
+      border-color: #f63756;
+      &:focus, &:hover {
+        background-color: #f63756;
+        border-color: #f63756;
+      }
+    }
+  }
+  .has-error, .has-success {
+    position: relative;
+    .ant-form-explain {
+      position: absolute;
+      left: 0;
+      top: 40px;
+    }
+  }
+  .avatar-uploader {
+    margin-bottom: 20px;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    .ant-upload-btn {
+      width: 80px;
+      height: 80px;
+      padding: 0 !important;
+    }
+    .ant-upload-select {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      margin: 0 auto;
+      border-radius: 50%;
+      // &::after {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100px;
+      //   content: '点击更换头像';
+      //   color: #333;
+      //   font-size: 12px;
+      // }
+    }
+
+  }
+}
+
+// 用户中心
+.center {
+  .ant-tabs-nav-scroll {
+    text-align: left;
+  }
+}
+
+// 这儿是课程详情
+.course-detail {
+  img {
+    margin-bottom: 10px;
+    max-width: 738px;
+    &:first-child {
+      margin-left: -30px;
+    }
+  }
+}

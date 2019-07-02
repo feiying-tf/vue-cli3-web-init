@@ -1,0 +1,31 @@
+.showPoint {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.limitTwoLines {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*3表示只显示3行*/
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}
+.leftPart {
+  float: left;
+  width: 818px;
+}
+.rightPart {
+  float: right;
+  width: 348px;
+}
+.pageLoading {
+  margin: 200px 0 100px 0;
+}
+.toCenter {
+  left: 50%;
+  transform: translateX(-50%);
+}

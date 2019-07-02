@@ -1,0 +1,40 @@
+// 显示...
+.showPoint {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 显示两行，超过两行显示...
+.limitTwoLines {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /*3表示只显示3行*/
+  /* autoprefixer: off */ 
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+}
+
+// 主题内容左边部分
+.leftPart {
+  float: left;
+  width: 818px;
+}
+// 主题内容右边部分
+.rightPart {
+  float: right;
+  width: 348px;
+}
+
+.pageLoading {
+  margin: 200px 0 100px 0;
+}
+
+.toCenter {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mainColor: #f63756;
