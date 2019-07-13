@@ -10,6 +10,18 @@ export const routerMap = [
     name: 'index',
     component: Home,
   },
+  // 列表内容
+  {
+    path: '/contentList',
+    name: 'contentList',
+    component: () => import('@/views/contentList/index.vue'),
+    children: [
+      {
+        path: ':id',
+        component: () => import('@/views/contentList/component/list.vue'),
+      }
+    ]
+  },
   // 登录
   {
     path: '/login',
@@ -28,6 +40,7 @@ export const routerMap = [
     name: 'aboutUs',
     component: () => import('@/views/aboutUs/index.vue'),
   },
+  
   // 个人中心
   {
     path: '/center',
@@ -49,9 +62,16 @@ export const routerMap = [
   {
     path: '*', redirect: '/wrong', hidden: true
   },
+  // 404
   {
     path: '/wrong', 
     name: '404',
     component: () => import('@/views/wrong/index.vue'),
+  },
+    // 下载页面
+  {
+    path: '/download',
+    name: 'download',
+    component: () => import('@/views/downLoad/index.vue')      
   },
 ]

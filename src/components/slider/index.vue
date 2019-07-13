@@ -20,7 +20,7 @@
       <div class="img-wrapper"><h3>3</h3></div>
       <div class="img-wrapper"><h3>4</h3></div> -->
       <div class="img-wrapper" @click.stop.prevent="handleSlider(item.id)" v-for="item in slideList" :key="item.id" :style="{background: `url(${item.netUrl}) no-repeat`, backgroundSize: '818px 353px'}">
-        <!-- <img :src="item.netUrl" alt="产品名"> -->
+        <!-- <img :src="item.netUrl" alt="易酒"> -->
         <p class="title">
           {{item.newsTitle}}
         </p>

@@ -9,7 +9,8 @@
   7. 其余显示 2016-10-15
 */
 
-export function formatTime (time:string) {
+export function formatTime (timeProp:string) {
+  let time = timeProp.replace(/-/g, '/');
   let oldTime = new Date(time).getTime();
   let currentTime = new Date().getTime();
   let diff = currentTime - oldTime;
@@ -37,4 +38,18 @@ export function formatTime (time:string) {
     let date = new Date(time).getDate();
     return `${year}-${month}-${date}`
   }
+}
+
+// 字符串转换为对象
+// search -> params
+export function searchToParams (str:string) {
+  let arr = str.split('&');
+  let obj:any = {
+  };
+  arr.forEach(item => {
+    let index = item.indexOf('=');
+    let key = item.slice(0, index);
+    let value = item.slice(index + 1);
+    obj[key] = value;
+  })
 }

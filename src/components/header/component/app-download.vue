@@ -1,15 +1,15 @@
 <template>
   <div class="app-download">
-    <img class="code" src="./appcode.png" alt="产品名">
+    <img class="code" src="./appcode.png" alt="易酒">
     <div class="right">
       <p>
         扫一扫下载App
       </p>
-      <a href="https://apps.apple.com/cn/app/id1451301193?l=zh&ls=1" target="_blank">
+      <a :href="iosUrl" target="_blank">
         <img class="ios" src="./app_download_applink.png" alt="">
       </a>
       
-      <a href="http://www.yijiuapp.com/app/yijiu_sign.apk" target="_blank">
+      <a :href="androidUrl" target="_blank">
         <img class="android" src="./app_download_android.png" alt="">
       </a>
     </div>
@@ -23,6 +23,8 @@ import Component from 'vue-class-component';
 
 @Component
 export default class Header extends Vue {
+  iosUrl = process.env.VUE_APP_DOWNLOAD_IOS
+  androidUrl = process.env.VUE_APP_DOWNLOAD_ANDROID
 }
 </script>
 

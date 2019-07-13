@@ -14,7 +14,7 @@
         </p>
       </div>
       <div class="right">
-        <img src="./foot_logo.png" alt="产品名">
+        <img src="./foot_logo.png" alt="易酒">
         <p>
           咨询热线欢迎您的来电<br/>
         </p>

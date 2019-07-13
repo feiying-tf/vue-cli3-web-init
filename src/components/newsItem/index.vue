@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper clearfix">
     <router-link class="img-wrapper" :to="{path: `/newsDetail/${news.id}`}" target="_blank">
-      <img v-if="news.netUrl" class="float_l left" v-lazy="news.netUrl" alt="产品名">
-      <img v-else class="float_l left" src="@/assets/default.png" alt="产品名">
+      <img v-if="news.netUrl" class="float_l left" v-lazy="news.netUrl" alt="易酒">
+      <img v-else class="float_l left" src="@/assets/default.png" alt="易酒">
     </router-link>
     
     <div class="right">
@@ -64,7 +64,12 @@ export default class NewsItem extends Vue {
 </script>
 
 <style lang="less" scoped>
-  @import '~@/style/util.less';
+  // @import '~@/style/util.less';
+  .showPoint {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   @hoverColor: #6ebdff;
   .wrapper {
     // height: 167px;

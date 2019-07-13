@@ -29,7 +29,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "src/router/index.js", "src/utils/common.js", "src/assets/share/js/social-share.min.js"
+    "tests/**/*.tsx", "src/router/index.js", "src/utils/common.js", "src/assets/share/js/social-share.min.js", "src/components/vue-photo-preview/src/lib/index.js", "src/main.ts"
   ],
   "exclude": [
     "node_modules"

@@ -15,7 +15,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 // 404
 @Component({
 })
-export default class Wrong extends Vue {
+export default class BusinessItem extends Vue {
   
 }
 </script>

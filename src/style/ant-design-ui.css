@@ -113,3 +113,12 @@
 .course-detail img:first-child {
   margin-left: -30px;
 }
+.creativeIdea .ant-btn-default {
+  width: 100%;
+  color: #f63756;
+}
+.creativeIdea .ant-btn-default:focus,
+.creativeIdea .ant-btn-default:hover {
+  color: #f63756;
+  border-color: #f63756;
+}

@@ -135,7 +135,8 @@ export default class Login extends Vue {
   }
 
   // 进行注册
-  handleSubmit () {
+  handleSubmit (e:any) {
+    e.preventDefault();
     this.form.validateFields((err:Error, values:any) => {
       if (err) {
         return;

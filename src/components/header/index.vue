@@ -1,19 +1,30 @@
 <template>
   <div class="wrapper w clearfix">
     <h1 class="float_l">
-      <router-link to="/">产品名全国酒类咨询商务平台</router-link>
+      <router-link to="/">易酒全国酒类咨询商务平台</router-link>
     </h1>
     <ul class="float_l">
+      <li class="items-wrapper" @mouseenter="handleMouseEnter('items')" @mouseleave="handleMouseLeave('items')">
+        <span>资 讯<a-icon class="items-icon" type="caret-down" /></span>
+        <transition name="show">
+          <section v-show="showItems">
+            <router-link v-for="(item, index) in itemList" :key="index" :to="{path:`/contentList/${item.id}`}">
+              {{item.code}}
+            </router-link>
+            <a v-if="itemList && itemList.length % 2 !== 0" href="#" ></a>
+          </section>
+        </transition>
+      </li>
       <li>
-        <router-link to="/businessList" target="_blank">替换</router-link>
+        <router-link to="/creativeIdea" target="_blank">文 创</router-link>
       </li>
     </ul>
     <div class="float_r right">
       <div class="app-dowload-enter" @mouseenter="handleMouseEnter('download')" @mouseleave="handleMouseLeave('download')">
-        <!-- <router-link to="/download">
+        <router-link to="/downLoad">
           <a-icon class="icon" type="mobile" />
           APP下载
-        </router-link> -->
+        </router-link>
         <a-icon class="icon" type="mobile" />
         <span>APP下载</span>
         <transition name="show">
@@ -24,13 +35,15 @@
         <a-icon class="icon-wechat" type="wechat" />
         <span style="font-size: 14px;">关注</span>
         <transition name="show">
-          <img v-show="showWechat" src="./component/weixin_ewm.jpg" alt="产品名">
+          <img v-show="showWechat" src="./component/weixin_ewm.jpg" alt="易酒">
         </transition>
       </div>
       <router-link v-if="!showCenter" to="/login">登录</router-link>
       <router-link v-if="!showCenter" to="/register">注册</router-link>
       <div v-if="showCenter" class="user-center" @mouseenter="showCenterItem=true" @mouseleave="showCenterItem=false">
         <router-link :to="{path: '/center', query: {type: 'comment'}}">
+          <!-- <img src="http://yijiu-app.oss-cn-beijing.aliyuncs.com/yjapp/20190618/8bee5404dbb04abb82a89c2f24188f2f.jpg" alt="个人中心">  -->
+          <!-- <img class="head-img" v-if="user && user.headImg" v-lazy="userImg || user.headImg" alt="个人中心"> -->
           <img class="head-img" v-if="user && user.headImg" :src="user.headImg" alt="个人中心">
           <img class="head-img" v-else src="@/assets/mr.png" alt="个人中心">
 
@@ -38,6 +51,8 @@
         </router-link>
         <ul class="center-item" v-show="showCenterItem">
           <li> <router-link :to="{path: '/center', query: {type: 'comment'}}" target="_blank">个人中心</router-link> </li>
+          <li> <router-link :to="{path: '/center', query: {type: 'comment'}}" target="_blank">我的评论</router-link> </li>
+          <li> <router-link :to="{path: '/center', query: {type: 'collect'}}" target="_blank">我的收藏</router-link> </li>
           <li><a @click.stop.prevent="logout" href="#">退出登录</a></li>
         </ul>
       </div>
@@ -150,8 +165,21 @@ export default class Header extends Vue {
           setTimeout(() => {
             removeToken();
             storage.clear();
-            _this.$router.push('/');
-            location.reload();
+
+            let uri = window.location.href;
+            let params = uri.split('?');
+            let indexurl = params[0];
+            let canshu=_this.$route.query
+            /* 如果不是第三方登录，那么直接通过router跳转到首页,
+              否则，必须通过域名的方式跳转到首页
+            */
+            if ( canshu !=null && uri.indexOf('code')<0 ){
+              _this.$router.push('/');
+              location.reload();
+            } else {
+              window.location.href = indexurl
+            }
+
           }, 1000);
         }).catch(() => console.log('Oops errors!'));
       },
@@ -162,7 +190,7 @@ export default class Header extends Vue {
 </script>
 
 <style lang="less" scoped>
-@import '~@/style/util.less';
+// @import '~@/style/util.less';
 
 // variable
 @hoverColor: #00bcd4;

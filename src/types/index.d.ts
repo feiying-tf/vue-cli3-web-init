@@ -33,8 +33,8 @@ declare module '@/assets/icon/renzheng.svg' {
   export default svg;
 }
 
-declare module 'vue-photo-preview' {
-  const preview: any
-  export default preview;
-}
+// declare module 'vue-photo-preview-fork' {
+//   const svg: any
+//   export default svg;
+// }
 

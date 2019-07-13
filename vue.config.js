@@ -19,20 +19,14 @@ module.exports = {
     proxy: {
         //配置跨域
         '/api': {
-            target: "http://dev.yijiuapp.com/api",
+            target: process.env.VUE_APP_BASE_SHARE,
             ws:true,
             changOrigin:true,
             pathRewrite:{
                 '^/api':'/'
             }
         }
-    },
-    // 忽略警告
-    overlay: {
-      warnings: false,
-      errors: false
-    },
-    lintOnSave: false
+    }
   },
   css: {
     /* less 变量覆盖，用于自定义 ant design 主题 */
@@ -57,10 +51,16 @@ module.exports = {
     }
   },
   chainWebpack: (config) => {
+    // config.entry('main').add('babel-polyfill')
     const svgRule = config.module.rule('svg');
     svgRule.uses.clear();
     svgRule
       .use('vue-svg-loader')
       .loader('vue-svg-loader');
   },
+  transpileDependencies: [
+    'webpack-dev-server/client',
+    'query-string',
+    'vue-photo-preview-fork'
+  ],
 }

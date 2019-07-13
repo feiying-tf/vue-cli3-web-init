@@ -1,10 +1,21 @@
 <template>
   <div class="detail course-detail">
     <share :config="config" v-if="showShare"></share>
-    <div class="social-share"></div>
     <a-spin v-if="pageLoading" size="large" class="page-loading"/>
     <div v-else class="main">
-      这儿是新闻详情
+      <div class="head">
+        <h3 class="title">
+          {{detail.newsTitle}}
+        </h3>
+        <p class="author">{{detail.author}}</p>
+        <p class="msg">
+          <time>{{detail.updTime}}</time> <span class="read">阅读{{detail.readCount}}</span> <span class="repeat">评论{{detail.repCount}}</span>
+        </p>
+      </div>
+      <div class="content">
+        <div v-html="detail.newsContext">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +35,7 @@ interface Detail {
 export default class BusinessItem extends Vue {
   @Watch('$route')
   routerWatch(to: any, from: any) {
+    // this.getDetail();
   }
   config = {
     url: '',
@@ -56,8 +68,6 @@ export default class BusinessItem extends Vue {
       this.config.title = <string>this.detail.newsTitle;
       this.config.url = <string>location.href;
       this.showShare = true;
-    }).catch(() => {
-      this.pageLoading = false;
     })
   }
 }

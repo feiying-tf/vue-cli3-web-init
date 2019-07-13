@@ -40,3 +40,14 @@ export function login(obj:Login) {
     params: obj
   })
 }
+
+export function thirdGetUid(id:string) {
+  let obj = {
+    code: id
+  }
+  return request({
+    url: '/api/1ec08564dcc344018d6aaa910068f0f0/app/thirdAuthUser/yijiu/webWeixinAuth',
+    method: 'get',
+    params: obj
+  })
+}

@@ -58,10 +58,10 @@
         </div>
         <p class="line">
         </p>
-        <!-- <div class="third">
-          <a-icon class="icon" type="qq" />
+        <div class="third">
+          <!-- <a-icon class="icon" type="qq" /> -->
           <a-icon class="icon" type="wechat" @click="handleLoginByWechat"/>
-        </div> -->
+        </div>
       </div>
 
       <div class="form-wrapper" v-show="currentTab==='tab2'" key="2">
@@ -108,10 +108,10 @@
         </div>
         <p class="line">
         </p>
-        <!-- <div class="third">
-          <a-icon class="icon" type="qq" />
+        <div class="third">
+          <!-- <a-icon class="icon" type="qq" /> -->
           <a-icon class="icon" type="wechat" @click="handleLoginByWechat" />
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -136,6 +136,11 @@ import {
 import storage from 'good-storage'
 
 const USER = '__user__'
+// interface Form {
+//   phoneNumber: number | string | null
+//   code: number | string | null
+// }
+
 // 登录
 @Component({
   filters: {
@@ -276,7 +281,7 @@ export default class Login extends Vue {
     window.open('https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=[YOUR_APPID]&redirect_uri=[YOUR_REDIRECT_URI]&scope=[THE_SCOPE]', '_self')
   }
   handleLoginByWechat () {
-    window.open(`https://open.weixin.qq.com/connect/qrconnect?appid=${process.env.VUE_APP_WEIXIN_APP_ID}&redirect_uri=http://www.yijiuapp.com/index&response_type=code&scope=snsapi_login&state=weixin#wechat_redirect`)
+    window.open(`https://open.weixin.qq.com/connect/qrconnect?appid=${process.env.VUE_APP_WEIXIN_APP_ID}&redirect_uri=http://www.yijiuapp.com&response_type=code&scope=snsapi_login&state=weixin#wechat_redirect`)
   }
 }
 </script>

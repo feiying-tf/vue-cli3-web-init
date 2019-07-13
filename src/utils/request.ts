@@ -41,7 +41,6 @@ service.interceptors.request.use((config:any) => {
     // 获取cookie中的token，并且放到请求的头中
     config.headers.Authorization = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
   } else {
-    // 根据实际情况进行配置
     if (config.url.includes('/app/oauth/token')) {
       config.headers.Authorization = 'Basic YXBwOmFwcA==';
     } else {
@@ -49,20 +48,23 @@ service.interceptors.request.use((config:any) => {
     }
   }
   
-  // ****************************************
-  // 根据实际情况进行配置
+  // 当文件上传的时候不需要x-tenant-flag这个字段
   if (!config.url.includes('oss/upload')) {
+    // 请求前必须添加否则无法访问
     config.headers['x-tenant-flag'] = 1;
   } else {
     delete config.headers.Authorization;
+    // config.headers['Content-Type'] = 'multipart/form-data';
   }
   
   if (config.url.includes('/app/appNews')) {
     let index = config.url.lastIndexOf('/');
     let id = config.url.slice(index + 1);
+    // config.headers['Cookie'] = `yj-news-real-read-${id}`;
+    // document.cookie = `yj-news-real-read-${id}`;
   } else {
+    // config.headers['Content-Type'] = 'multipart/form-data';
   }
-  // ****************************************
 
   return config
 }, error => {

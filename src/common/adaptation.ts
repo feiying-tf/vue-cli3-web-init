@@ -42,6 +42,32 @@ export class NewsAdapt {
   }
 }
 
+// 商机右侧item
+export class BusinessAdapt {
+  public id: string;
+  public title: string;
+  public img: string;
+  public contactsName: string;
+  public updTime: string;
+  public readCount: string;
+  public itemsId: string;
+  public crtTime: string;
+  public crtUserName: string;
+
+  constructor(msg: any) {
+    let { updTime, crtTime, itemsId, contactsName, title, id, crtUserIcon, newsCount, crtUserName } = msg;
+    this.id = id;
+    this.title = title;
+    this.img = crtUserIcon;
+    this.contactsName = contactsName;
+    this.updTime = updTime;
+    this.readCount = newsCount.readCount;
+    this.itemsId = itemsId;
+    this.crtTime = formatTime(crtTime);
+    this.crtUserName = crtUserName;
+  }
+}
+
 // 头条
 interface HeadLines {
   newsTitle: string,
@@ -86,66 +112,6 @@ export class NewsDetailAdapt {
   }
 }
 
-
-// 商机详情
-export class BusinessDetailAdapt {
-  public id: string;
-  public title: string;
-  public userHeaderImg?: string;
-  public contactsName?: string;
-  public updTime: string;
-  public contentText: string;
-  public contactsMobile?: string;
-  public files: Array<string>
-  public itemsTemplates?: Array<any>;
-  public crtUserAuthState: string;
-  public crtUserName: string;
-
-  constructor(msg: any) {
-    let { id, title, crtUserName, crtUserAuthState, contactsName, contactsMobile, crtUserIcon, updTime, contentText, itemsTemplates, files} = msg;
-    this.id = id;
-    this.title = title;
-    this.contactsName = contactsName;
-    this.contactsMobile = contactsMobile;
-    this.userHeaderImg = crtUserIcon;
-    this.updTime = formatTime(updTime);
-    this.contentText = contentText;
-    this.crtUserAuthState = crtUserAuthState;
-    this.crtUserName = crtUserName;
-    this.files = files.map((item:any) => {
-      return item.netUrl;
-    });
-    this.itemsTemplates = [];
-    let arr:any = [];
-    itemsTemplates.forEach((item:any) => {
-      if (item.attrHint) {
-        arr.push({
-          name: item.attrName,
-          value: item.attrHint
-        })
-      }
-    });
-
-    // 如果没有登陆，那么就提示登陆可以查看电话
-    if (!getToken()) {
-      arr.unshift({
-        name: '联系电话',
-        value: 'notLogin'
-      })
-    } else {
-      arr.unshift({
-        name: '联系电话',
-        value: contactsMobile
-      })
-    }
-    arr.unshift({
-      name: '联系人',
-      value: contactsName
-    })
-    this.itemsTemplates = arr;
-  }
-}
-
 // 用户信息
 export class UserAdapt {
   public id: string;
@@ -172,70 +138,4 @@ export class UserAdapt {
     this.address = address;
     this.userTitle = info.userTitle;
   }
-}
-
-// 我的新闻收藏
-export class MyNewsCollectAdapt {
-  public id: string;
-  public imgUrl: string;
-  public title: string;
-  public crtTime: string;
-  public newsAbstract: string;
-
-  constructor(msg: any) {
-    let { id, headers, newsTitle, crtTime, newsAbstract} = msg;
-    this.id = id;
-    this.imgUrl = headers [0] && headers[0]['netUrl'];
-    this.title = newsTitle;
-    this.crtTime = crtTime;
-    this.newsAbstract = newsAbstract;
-  }
-}
-
-// 我的商机收藏
-export class MyBusinessCollectAdapt {
-  public id: string;
-  public imgUrl: string;
-  public title: string;
-  public crtTime: string;
-  
-  constructor(msg: any) {
-    let { id, files, title, crtTime} = msg;
-    this.id = id;
-    this.imgUrl = files[0] && files[0]['netUrl'];
-    this.title = title;
-    this.crtTime = crtTime;
-  }
-}
-
-// 我的新闻评论
-export class MyNewsCommentAdapt {
-  public id: string;
-  public content: string;
-  public newsTitle: string;
-  public crtTime: string;
-
-  constructor(msg: any) {
-    let { id, headers, newsTitle, topList} = msg;
-    this.id = id;
-    this.content = topList[0] && topList[0].content;
-    this.newsTitle = newsTitle;
-    this.crtTime = topList[0] && topList[0].crtTime;
-  }
-}
-
-// 我的商机评论
-export class MyBusinessCommentAdapt {
-public id: string;
-public content: string;
-public newsTitle: string;
-public crtTime: string;
-
-constructor(msg: any) {
-  let { id, headers, title, topList} = msg;
-  this.id = id;
-  this.content = topList[0] && topList[0].content;
-  this.newsTitle = title;
-  this.crtTime = topList[0] && topList[0].crtTime;
-}
 }
